@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thunder FC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Google+Sans+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo-container">
+            <div class="logo">⚽</div>
+            <h1>Thunder <span class="logo-name">FC</span></h1>
+        </div>
+        <button class="admin-toggle" onclick="toggleAdminPanel()">Log in</button>
+    </header>
+
+    <!-- Navigation -->
+    <div class="navigation">
+        <button class="nav-btn active" onclick="showSection('team')">Team Players</button>
+        <button class="nav-btn" onclick="showSection('match')">Upcoming Match</button>
+        <!-- <button class="nav-btn" onclick="showSection('admin')">Admin Panel</button> -->
+    </div>
+
+    <!-- Team Section -->
+    <div id="team" class="section active">
+        <div class="team-section-container">
+            <h2>Our Team</h2>
+            <p>Meet the Thunder FC squad - dedicated players ready to dominate the field!</p>
+            <div class="team-grid" id="teamGrid">
+                <!-- Player cards will be generated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Match Section -->
+    <div id="match" class="section">
+        <div class="match-section-container">
+            <h2>Upcoming Match</h2>
+            <p>Get ready for our next exciting game!</p>
+            <div class="match-container">
+                <div class="match-teams">
+                    <div class="team-logo" id="homeTeamLogo">⚡</div>
+                    <div class="vs">VS</div>
+                    <div class="team-logo" id="awayTeamLogo">🔥</div>
+                </div>
+                <div class="match-info" id="matchInfo">
+                    <!-- Match info will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Section -->
+    <div id="admin" class="section">
+        <div class="admin-section-container">
+            <h2>Admin Panel</h2>
+            
+            <div id="adminLogin" class="admin-login">
+                <h3 style="color: #FFD700; margin-bottom: 20px;">Admin Login</h3>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" id="adminPassword" placeholder="Enter admin password">
+                </div>
+                <button class="btn btn-primary" onclick="adminLogin()">Login</button>
+                <div id="loginAlert"></div>
+            </div>
+
+            <div id="adminPanel" class="admin-panel">
+                <div class="admin-form">
+                    <h3>Update Match Information</h3>
+                    <div class="form-group">
+                        <label>Home Team Name:</label>
+                        <input type="text" id="homeTeamName" placeholder="Thunder FC">
+                    </div>
+                    <div class="form-group">
+                        <label>Home Team Logo (Emoji):</label>
+                        <input type="text" id="homeTeamLogoInput" placeholder="⚡">
+                    </div>
+                    <div class="form-group">
+                        <label>Away Team Name:</label>
+                        <input type="text" id="awayTeamName" placeholder="Rivals FC">
+                    </div>
+                    <div class="form-group">
+                        <label>Away Team Logo (Emoji):</label>
+                        <input type="text" id="awayTeamLogoInput" placeholder="🔥">
+                    </div>
+                    <div class="form-group">
+                        <label>Match Date:</label>
+                        <input type="date" id="matchDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Match Time:</label>
+                        <input type="time" id="matchTime">
+                    </div>
+                    <div class="form-group">
+                        <label>Stadium:</label>
+                        <input type="text" id="matchStadium" placeholder="Thunder Stadium">
+                    </div>
+                    <div class="form-group">
+                        <label>League:</label>
+                        <input type="text" id="matchLeague" placeholder="Premier League">
+                    </div>
+                    <button class="btn" onclick="updateMatch()">Save Match Info</button>
+                    <div id="adminAlert"></div>
+                </div>
+
+                <div class="admin-form">
+                    <h3>Add/Edit Player</h3>
+                    <div class="form-group">
+                        <label>Player Name:</label>
+                        <input type="text" id="playerName" placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Jersey Number:</label>
+                        <input type="number" id="playerNumber" placeholder="10">
+                    </div>
+                    <div class="form-group">
+                        <label>Position:</label>
+                        <select id="playerPosition">
+                            <option value="">Select Position</option>
+                            <option value="Goalkeeper">Goalkeeper</option>
+                            <option value="Defender">Defender</option>
+                            <option value="Midfielder">Midfielder</option>
+                            <option value="Forward">Forward</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="addPlayer()">Add Player</button>
+                </div>
+
+                <button class="btn btn-primary" onclick="logout()">Logout</button>
+                <div id="adminAlert"></div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+<script src="script.js"></script>
+</html>
