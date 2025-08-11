@@ -1,7 +1,7 @@
 
 // Default data
 let players = [
-{ name: "Chivorn Mon", number: 1, position: "Goalkeeper", avatar: "🥅" },
+{ name: "BRO KA", number: 224, position: "Goalkeeper", avatar: "🥅" },
 ];
 
 let matchData = {
@@ -230,4 +230,5 @@ document.getElementById('adminAlert').innerHTML = '<div class="alert alert-succe
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
 initializeData();
+
 });
